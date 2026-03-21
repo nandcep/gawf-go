@@ -6,20 +6,20 @@ GAWf stands for GitHub Action Workflow, this open-source project is providing a 
 
 # Getting Started
 
-Standard implementation to start with GAWf for Go.
+Standard implementation to start with GAWf for Go in your project. Makefile is used to abstract commands from developer as the test and compile method can be vary on each developer.
 
 ## Command Abstraction
 
 1. Create Makefile in your project.
-2. Add command to compile and test:
+2. Add command to test and compile:
 ```sh
-make compile:
-    # your command to compile
-    # i.e go build -o <binary-name> <extra-params>
-
 make test:
     # your command to test the project
     # i.e go test ./... <extra-params>
+
+make compile:
+    # your command to compile
+    # i.e go build -o <binary-name> <extra-params>
 ```
 3. Test your command by running `make compile` and `make test` to ensure it works on local machine.
 
