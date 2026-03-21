@@ -13,3 +13,9 @@ jobs:
         uses: nandcep/gawf-go/.github/workflows/ci-code-quality.yml@master
         with:
             GO_SDK: "1.26.0"
+    code-coverage:
+        needs: [code-quality]
+        uses: nandcep/gawf-go/.github/workflows/ci-code-coverage.yml@master
+        with:
+            GO_SDK: "1.26.0"
+            GOSEC_PARAMS: ""

@@ -5,6 +5,10 @@ on:
             GO_SDK:
                 required: true
                 type: string
+            GOSEC_PARAMS:
+                required: true
+                type: string
+                default: ""
 
 jobs:
     golangci-lint:
@@ -60,4 +64,4 @@ jobs:
             - name: Gosec Scanner 🔍
               uses: securego/gosec@v2.25.0
               with:
-                  args: ./...
+                  args: "${{ inputs.GOSEC_PARAMS}}./..."
