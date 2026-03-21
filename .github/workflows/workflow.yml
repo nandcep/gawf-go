@@ -7,15 +7,18 @@ on:
             GO_SDK:
                 required: true
                 type: string
+            GOSEC_PARAMS:
+                required: true
+                type: string
 
 jobs:
     code-quality:
         uses: nandcep/gawf-go/.github/workflows/ci-code-quality.yml@master
         with:
-            GO_SDK: "1.26.0"
+            GO_SDK: "${{ inputs.GO_SDK }}"
     code-coverage:
         needs: [code-quality]
         uses: nandcep/gawf-go/.github/workflows/ci-code-coverage.yml@master
         with:
-            GO_SDK: "1.26.0"
-            GOSEC_PARAMS: ""
+            GO_SDK: "${{ inputs.GO_SDK }}"
+            GOSEC_PARAMS: "${{ inputs.GOSEC_PARAMS }}"
