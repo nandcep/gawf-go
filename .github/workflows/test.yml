@@ -1,8 +1,0 @@
-name: Build and Test
-on: [push, pull_request]
-
-jobs:
-  ready-to-action:
-    uses: nandcep/gawf-go/.github/workflows/workflow.yml@master
-    with:
-      GO_SDK: '1.25'

@@ -1,1 +1,32 @@
----
+name: Code Quality Flow
+on:
+    workflow_call:
+        inputs:
+            message:
+                required: true
+                type: string
+            second_message:
+                required: true
+                type: string
+            third_message:
+                required: true
+                type: string
+
+jobs:
+    linter:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Go CI Linter
+              run: echo "${{ inputs.message }}"
+
+    secret-scanner:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Secret Scanner
+              run: echo "${{ inputs.second_message }}"
+
+    dependency-scan:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Dependency Scan
+              run: echo "${{ inputs.third_message }}"
