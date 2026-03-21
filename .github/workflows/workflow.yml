@@ -2,7 +2,7 @@ name: "GitHub Action Workflow - CI Go Language"
 description: "Complete CI Pipeline to ensure your Go code is secure and reliable while eliminate your effort to compile"
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   call-reusable:
