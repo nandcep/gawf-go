@@ -16,9 +16,9 @@ jobs:
         uses: nandcep/gawf-go/.github/workflows/ci-code-quality.yml@master
         with:
             GO_SDK: "${{ inputs.GO_SDK }}"
+            GOSEC_PARAMS: "${{ inputs.GOSEC_PARAMS }}"
     code-coverage:
         needs: [code-quality]
         uses: nandcep/gawf-go/.github/workflows/ci-code-coverage.yml@master
         with:
             GO_SDK: "${{ inputs.GO_SDK }}"
-            GOSEC_PARAMS: "${{ inputs.GOSEC_PARAMS }}"
