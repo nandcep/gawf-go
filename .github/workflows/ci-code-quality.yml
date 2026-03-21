@@ -2,16 +2,7 @@ name: Code Quality Flow
 on:
     workflow_call:
         inputs:
-            first_message:
-                required: true
-                type: string
-            second_message:
-                required: true
-                type: string
-            third_message:
-                required: true
-                type: string
-            fourth_message:
+            GO_SDK:
                 required: true
                 type: string
 
@@ -19,23 +10,35 @@ jobs:
     golangci-lint:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Source
+              uses: actions/checkout@v6.0.2
             - name: Go CI Linter
-              run: echo "${{ inputs.first_message }}"
+              run: echo "Draft golangci-lint"
 
     secret-scanner:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Source
+              uses: actions/checkout@v6.0.2
             - name: Secret Scanner
-              run: echo "${{ inputs.second_message }}"
+              run: echo "Draft secret-scanner"
 
     dependency-scan:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Source
+              uses: actions/checkout@v6.0.2
             - name: Dependency Scan
-              run: echo "${{ inputs.third_message }}"
+              uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
+            - name: SBOM CycloneDx
+              uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
 
     gosec:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Source
+              uses: actions/checkout@v6.0.2
             - name: Gosec Scanner
-              run: echo "${{ inputs.fourth_message }}"
+              uses: securego/gosec@v2.25.0
+              with:
+                  args: ./...

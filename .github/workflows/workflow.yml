@@ -1,14 +1,15 @@
 name: "GitHub Action Workflow - CI Go Language"
 description: "Complete CI Pipeline to ensure your Go code is secure and reliable while eliminate your effort to compile"
+
 on:
-  push:
-    branches: [master]
+    workflow_call:
+        inputs:
+            GO_SDK:
+                required: true
+                type: string
 
 jobs:
-  code-quality:
-    uses: ./.github/workflows/ci-code-quality.yml
-    with:
-      first_message: "GolangCI lint is running..."
-      second_message: "Secret scanner is running..."
-      third_message: "Dependency scanner is running..."
-      fourth_message: "Gosec job is running..."
+    code-quality:
+        uses: nandcep/gawf-go/.github/workflows/ci-code-quality.yml@master
+        with:
+            GO_SDK: "1.26.0"
