@@ -1,3 +1,3 @@
-# GitHub Action Workflow (GAWf) - Go Language
+# GAWf - Go Language
 
-A complete Continuous Integration (CI) workflow for GitHub Action, specific for Go Language.
+GAWf stands for GitHub Action Workflow, this project is providing a complete Continuous Integration (CI) workflow for GitHub Action that specific for Go Language.
