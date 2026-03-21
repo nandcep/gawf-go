@@ -16,5 +16,5 @@ jobs:
               uses: actions/setup-go@v6
               with:
                   go-version: ${{ inputs.GO_SDK }}
-            - name: Unit Test
+            - name: Run Tests 🧪
               run: make test
