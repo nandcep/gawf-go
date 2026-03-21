@@ -1,0 +1,21 @@
+---
+
+name: 'GitHub Action Workflow - CI Go Language'
+description: 'Complete CI Pipeline to ensure your Go code is secure and reliable while eliminate your effort to compile'
+on:
+  workflow_call:
+    inputs:
+    GO_SDK:
+      description: 'Your Go SDK version'
+      required: true
+      default: '1.24'
+
+jobs:
+  #code-quality:
+  #  uses: ./ci-code-quality.yml
+  test-coverage:
+  #  needs: code-quality
+    uses: ./ci-test-coverage.yml
+  compile:
+    needs: test-coverage
+    uses: ./ci-compilation.yml

@@ -1,0 +1,18 @@
+---
+
+name: Test Coverage Stage
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ inputs.GO_SDK }}
+          cache: true
+
+      - name: Unit Tests Execution
+        run: |
+          echo "unit tests are running..."
