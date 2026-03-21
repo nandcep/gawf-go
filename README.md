@@ -37,11 +37,13 @@ make compile:
 
 # Workflow Features
 
+```yaml
 - code-quality
 - test-coverage
 - compilation
 - containerize
 - publish-to-artefact
+```
 
 ## Code Quality Stage
 
