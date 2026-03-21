@@ -20,7 +20,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Go CI Linter
-              run: echo "${{ inputs.message }}"
+              run: echo "${{ inputs.first_message }}"
 
     secret-scanner:
         runs-on: ubuntu-latest
