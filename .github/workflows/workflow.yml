@@ -10,6 +10,12 @@ on:
             GOSEC_PARAMS:
                 required: true
                 type: string
+            BINARY_NAME:
+                required: true
+                type: string
+            SOURCE_TO_IMAGE:
+                required: true
+                type: boolean
 
 jobs:
     code-quality:
@@ -22,3 +28,9 @@ jobs:
         uses: nandcep/gawf-go/.github/workflows/ci-code-coverage.yml@master
         with:
             GO_SDK: "${{ inputs.GO_SDK }}"
+    code-compilation:
+        needs: [code-coverage]
+        uses: nandcep/gawf-go/.github/workflows/ci-code-compilation.yml@master
+        with:
+            GO_SDK: "${{ inputs.GO_SDK }}"
+            BINARY_NAME: "${{ inputs.BINARY_NAME }}"

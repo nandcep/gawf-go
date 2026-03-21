@@ -1,0 +1,24 @@
+name: Code Compilation Flow
+on:
+    workflow_call:
+        inputs:
+            GO_SDK:
+                required: true
+                type: string
+            BINARY_NAME:
+                required: true
+                type: string
+            
+
+jobs:
+    compilation:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Source 🫳🏼
+              uses: actions/checkout@v6.0.2
+            - name: Setup Go ⚙️
+              uses: actions/setup-go@v6
+              with:
+                  go-version: ${{ inputs.GO_SDK }}
+            - name: Run Compile 🚀
+              run: make compile BINARY_NAME=${{ inputs.BINARY_NAME }}
