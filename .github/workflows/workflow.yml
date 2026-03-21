@@ -5,9 +5,10 @@ on:
     branches: [master]
 
 jobs:
-  call-reusable:
+  code-quality:
     uses: ./.github/workflows/ci-code-quality.yml
     with:
-      message: "Hello from the reusable workflow! 🚀"
-      second_message: "Hi there"
-      third_message: "Tes again"
+      first_message: "GolangCI lint is running..."
+      second_message: "Secret scanner is running..."
+      third_message: "Dependency scanner is running..."
+      fourth_message: "Gosec job is running..."

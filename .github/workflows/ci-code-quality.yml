@@ -2,7 +2,7 @@ name: Code Quality Flow
 on:
     workflow_call:
         inputs:
-            message:
+            first_message:
                 required: true
                 type: string
             second_message:
@@ -11,9 +11,12 @@ on:
             third_message:
                 required: true
                 type: string
+            fourth_message:
+                required: true
+                type: string
 
 jobs:
-    linter:
+    golangci-lint:
         runs-on: ubuntu-latest
         steps:
             - name: Go CI Linter
@@ -30,3 +33,9 @@ jobs:
         steps:
             - name: Dependency Scan
               run: echo "${{ inputs.third_message }}"
+
+    gosec:
+        runs-on: gosec
+        steps:
+            - name: Gosec Scanner
+              run: echo "${{ inputs.fourth_message }}"
