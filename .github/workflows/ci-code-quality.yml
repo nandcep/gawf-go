@@ -35,7 +35,7 @@ jobs:
               run: echo "${{ inputs.third_message }}"
 
     gosec:
-        runs-on: gosec
+        runs-on: ubuntu-latest
         steps:
             - name: Gosec Scanner
               run: echo "${{ inputs.fourth_message }}"
