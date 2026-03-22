@@ -46,15 +46,26 @@ jobs:
                 --output sbom-vulnerabilities.json
                 ./
 
+    # sbom-cyclonedx:
+    #     name: OSV Cyclone DX 🔍
+    #     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
+    #     with:
+    #         scan-args: |-
+    #             --format cyclonedx-1-5
+    #             --recursive
+    #             --output sbom-cyclonedx.json
+    #             ./
+
     sbom-cyclonedx:
-        name: OSV Cyclone DX 🔍
-        uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
-        with:
-            scan-args: |-
-                --format cyclonedx-1-5
-                --recursive
-                --output sbom-cyclonedx.json
-                ./
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Source 🫳🏼
+              uses: actions/checkout@v6.0.2
+            - name: Cyclone DX 🔍
+              uses: anchore/sbom-action@v0.24.0
+              with:
+                  format: "cyclonedx-json"
+                  output-file: "sbom.json"
 
     gosec:
         runs-on: ubuntu-latest
