@@ -23,6 +23,10 @@ jobs:
         with:
             GO_SDK: "${{ inputs.GO_SDK }}"
             GOSEC_PARAMS: "${{ inputs.GOSEC_PARAMS }}"
+        permissions:
+            actions: read          
+            security-events: write
+            contents: read
     code-coverage:
         needs: [code-quality]
         uses: nandcep/gawf-go/.github/workflows/ci-code-coverage.yml@master
