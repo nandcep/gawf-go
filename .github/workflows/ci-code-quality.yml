@@ -40,26 +40,18 @@ jobs:
     dependency-scan:
         name: OSV Dependency Scan 🔍
         uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
-        permissions:
-            security-events: write
-            actions: read
-            contents: read
         with:
             scan-args: |-
                 --recursive
-                --output sbom-cyclonedx.json
+                --output sbom-vulnerabilities.json
                 ./
 
     sbom-cyclonedx:
         name: OSV Cyclone DX 🔍
         uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
-        permissions:
-            security-events: write
-            actions: read
-            contents: read
         with:
             scan-args: |-
-                --format cyclonedx
+                --format cyclonedx-1-5
                 --recursive
                 --output sbom-cyclonedx.json
                 ./

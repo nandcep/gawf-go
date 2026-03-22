@@ -3,14 +3,15 @@ on:
     push:
         branches: [master]
 
+permissions:
+    actions: read          
+    security-events: write
+    contents: read
+
 jobs:
     ci-gawf-go:
         uses: nandcep/gawf-go/.github/workflows/workflow.yml@master
         secrets: inherit
-        permissions:
-            actions: read          
-            security-events: write
-            contents: read
         with:
             GO_SDK: "1.25.8"
             BINARY_NAME: "simple-calc"
