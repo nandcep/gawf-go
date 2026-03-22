@@ -20,9 +20,6 @@ on:
 jobs:
     code-quality:
         uses: nandcep/gawf-go/.github/workflows/ci-code-quality.yml@master
-        permissions:
-            actions: read
-            security-events: write
         with:
             GO_SDK: "${{ inputs.GO_SDK }}"
             GOSEC_PARAMS: "${{ inputs.GOSEC_PARAMS }}"
