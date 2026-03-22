@@ -38,23 +38,27 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     dependency-scan:
-        name: OSV Dependency Scan 🔍
-        uses: google/osv-scanner-action@v2.3.3
-        with:
-            scan-args: |-
-                --recursive
-                --output sbom-cyclonedx.json
-                ./
-
-    sbom-cyclonedx:
-        name: OSV Cyclone DX 🔍
-        uses: google/osv-scanner-action@v2.3.3
-        with:
-            scan-args: |-
-                --format cyclonedx
-                --recursive
-                --output sbom-cyclonedx.json
-                ./
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Source 🫳🏼
+              uses: actions/checkout@v6.0.2
+              with:
+                  fetch-depth: 0
+            - name: OSV Dependency Scan 🔍
+              uses: google/osv-scanner-action@v2.3.3
+              with:
+                  scan-args: |-
+                      --recursive
+                      --output sbom-cyclonedx.json
+                      ./
+            - name: OSV Cyclone DX 🔍
+              uses: google/osv-scanner-action@v2.3.3
+              with:
+                  scan-args: |-
+                      --format cyclonedx
+                      --recursive
+                      --output sbom-cyclonedx.json
+                      ./
 
     gosec:
         runs-on: ubuntu-latest
