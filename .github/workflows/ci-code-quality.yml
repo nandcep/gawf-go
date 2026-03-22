@@ -49,16 +49,16 @@ jobs:
               with:
                   scan-args: |-
                       --recursive
-                      --output sbom-cyclonedx.json
+                      --output dependency-report.json
                       ./
-            - name: OSV Cyclone DX 🔍
-              uses: google/osv-scanner-action@v2.3.3
-              with:
-                  scan-args: |-
-                      --format cyclonedx
-                      --recursive
-                      --output sbom-cyclonedx.json
-                      ./
+            # - name: OSV Cyclone DX 🔍
+            #   uses: google/osv-scanner-action@v2.3.3
+            #   with:
+            #       scan-args: |-
+            #           --format cyclonedx
+            #           --recursive
+            #           --output sbom-cyclonedx.json
+            #           ./
 
     gosec:
         runs-on: ubuntu-latest
