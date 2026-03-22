@@ -39,7 +39,7 @@ jobs:
 
     dependency-scan:
         name: OSV Dependency Scan 🔍
-        uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
+        uses: google/osv-scanner-action@v2.3.3
         with:
             scan-args: |-
                 --recursive
@@ -48,7 +48,7 @@ jobs:
 
     sbom-cyclonedx:
         name: OSV Cyclone DX 🔍
-        uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
+        uses: google/osv-scanner-action@v2.3.3
         with:
             scan-args: |-
                 --format cyclonedx
