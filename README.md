@@ -2,7 +2,7 @@
 
 <img align="right" width="130px" src="https://raw.githubusercontent.com/nandcep/gawf-go/refs/heads/master/Logo-Gemini-Generated.png">
 
-GAWf stands for GitHub Action Workflow, this open-source project is providing a complete Continuous Integration (CI) workflow for GitHub Action that specific for Go Language. This template allow developer to be easier in integrating shift left testing in their codebase to capture feedback while deliver features.
+GAWf stands for GitHub Action Workflow, this open-source project is providing a complete Continuous Integration (CI) workflow for GitHub Action that specific for Go Language. This template allow developer to be easier in integrate shift left test onto their codebase with ease, to capture feedback earlier while deliver features.
 
 # Getting Started
 
